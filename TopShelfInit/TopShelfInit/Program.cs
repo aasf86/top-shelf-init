@@ -11,7 +11,7 @@ namespace TopShelfInit
     {
         static void Main(string[] args)
         {
-            /*
+            
             var cmdRun = HostFactory.Run(svc => 
             {
                 svc.Service<ServiceTimer>(service =>
@@ -33,20 +33,23 @@ namespace TopShelfInit
             Environment.ExitCode = exitCode;
 
             return;
-            */
+            
+            /*
             using (var svc = new ServiceTimer())
             {
                 svc.Start();
 
-                var arrayCount = new List<string>();
+                var arrayCount = new List<string>() { "" };
 
                 while (true)
                 {
-                    Console.WriteLine("Running", string.Join(".", arrayCount));                    
-                    System.Threading.Thread.Sleep(1000);
                     arrayCount.Add("");
+                    Console.WriteLine("Running{0}", string.Join(".", arrayCount));                    
+                    System.Threading.Thread.Sleep(1000);                    
+                    if (arrayCount.Count == 20) arrayCount.Clear(); arrayCount.Add("");                    
                 }
             }
+            */
         }
     }
 }
