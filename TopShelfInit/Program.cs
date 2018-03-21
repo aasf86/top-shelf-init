@@ -12,20 +12,20 @@ namespace TopShelfInit
         static void Main(string[] args)
         {
             
-            var cmdRun = HostFactory.Run(svc => 
+            var cmdRun = HostFactory.Run(process => 
             {
-                svc.Service<ServiceTimer>(service =>
+                process.Service<ServiceTimer>(service =>
                 {
                     service.ConstructUsing(name => new ServiceTimer());
-                    service.WhenStarted(s => s.Start());
-                    service.WhenStopped(s => s.Stop());
+                    service.WhenStarted(svc => svc.Start());
+                    service.WhenStopped(svc => svc.Stop());
                 });
 
-                svc.RunAsLocalSystem();
+                process.RunAsLocalSystem();
 
-                svc.SetDescription("Sample Topshelf Host - Init @aasf86");
-                svc.SetDisplayName("@aasf86 - Demo");
-                svc.SetServiceName("@aasf86 - Demo");
+                process.SetDescription("Sample Topshelf Host - Init @aasf86");
+                process.SetDisplayName("@aasf86 - Demo");
+                process.SetServiceName("@aasf86 - Demo");
 
             });
 

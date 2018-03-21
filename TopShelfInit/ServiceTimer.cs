@@ -33,14 +33,12 @@ namespace TopShelfInit
         }
 
         public void Start()
-        {
-            //_timer.Enabled = true;
+        {         
             _timer.Start();
         }
 
         public void Stop()
         {
-            //_timer.Enabled = false;
             _timer.Stop();
         }
     }
