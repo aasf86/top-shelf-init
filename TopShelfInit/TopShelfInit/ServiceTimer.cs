@@ -8,13 +8,13 @@ using System.Timers;
 
 namespace TopShelfInit
 {
-    public class ServiceTimer
+    public class ServiceTimer : IDisposable
     {
         private Timer _timer;
 
         public ServiceTimer()
         {
-            _timer = new Timer(60000);
+            _timer = new Timer(3000) { AutoReset = true };
             _timer.Elapsed += (obj, sender) =>
             {
                 using (StreamWriter sw = new StreamWriter(Path.Combine(Environment.CurrentDirectory, "log.txt"), true))
@@ -26,13 +26,21 @@ namespace TopShelfInit
             };
         }
 
+        public void Dispose()
+        {
+            _timer.Dispose();
+            GC.ReRegisterForFinalize(this);            
+        }
+
         public void Start()
         {
+            //_timer.Enabled = true;
             _timer.Start();
         }
 
         public void Stop()
         {
+            //_timer.Enabled = false;
             _timer.Stop();
         }
     }
