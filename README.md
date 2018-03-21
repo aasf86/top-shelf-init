@@ -20,6 +20,10 @@ Show me the code -> with console application
 Program - Main()
 
 ```csharp
+
+    using System;
+    using Topshelf;
+
     class Program
     {
         static void Main(string[] args)
@@ -54,11 +58,7 @@ ServiceTimer
 ```csharp
 
     using System;
-    using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Timers;
 
     public class ServiceTimer : IDisposable
