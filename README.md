@@ -96,3 +96,12 @@ ServiceTimer
         }
     }
 ```
+
+How to install this?
+----
+![install](https://raw.githubusercontent.com/aasf86/top-shelf-init/master/TopShelfInit/cmd-install.JPG)
+
+How to uninstall this?
+----
+![uninstall](https://raw.githubusercontent.com/aasf86/top-shelf-init/master/TopShelfInit/cmd-uninstall.JPG)
+
